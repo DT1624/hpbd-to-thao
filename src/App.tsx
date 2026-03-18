@@ -243,7 +243,7 @@ const CuteCake = ({ onFinish }: { onFinish: () => void }) => {
 
       <div className="relative h-64 sm:h-96 flex flex-col items-center justify-end">
         {/* Cake Layers */}
-        <div className="relative flex flex-col items-center scale-75 sm:scale-100 origin-bottom">
+        <div className="relative flex flex-col items-center scale-100 origin-bottom">
           {/* Candles */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full flex gap-6 sm:gap-10 z-20">
             {candlesLit.map((lit, i) => (
@@ -258,7 +258,7 @@ const CuteCake = ({ onFinish }: { onFinish: () => void }) => {
                       rotate: [-3, 3, -3]
                     }}
                     transition={{ repeat: Infinity, duration: 0.5 }}
-                    className="absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 w-4 h-7 sm:w-6 h-11 bg-gradient-to-t from-orange-400 to-yellow-200 rounded-full blur-[0.5px]"
+                    className="absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 w-4 h-7 sm:w-6 h-11 bg-gradient-to-t from-orange-400 to-yellow-200 rounded-full blur-0 sm:blur-[0.5px]"
                     style={{ 
                       clipPath: 'polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%)',
                       boxShadow: '0 0 15px #ff8c00'
@@ -346,7 +346,7 @@ const FinalSection = () => {
       
       <h2 className="font-cursive text-5xl sm:text-7xl text-rose-500 leading-tight">Tuổi mới rực rỡ nhé!</h2>
       <p className="text-lg sm:text-2xl text-gray-500 font-medium italic">
-        Hy vọng cậu đã có những giây phút thật vui vẻ (và bớt lầy lội hơn).
+        Hy vọng cậu đã có những giây phút thật vui vẻ khi nhận món quá này.
       </p>
       
       <div className="flex justify-center gap-6 sm:gap-10 pt-4 sm:pt-8">
