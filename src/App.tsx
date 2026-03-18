@@ -242,42 +242,42 @@ const CuteCake = ({ onFinish }: { onFinish: () => void }) => {
       <p className="text-rose-400 mb-8 sm:mb-14 italic text-sm sm:text-lg">Chạm vào từng ngọn nến để thổi tắt</p>
 
       <div className="relative h-64 sm:h-96 flex flex-col items-center justify-end">
-        {/* Candles */}
-        <div className="flex gap-6 sm:gap-10 mb-[-6px] sm:mb-[-10px] z-20">
-          {candlesLit.map((lit, i) => (
-            <div key={i} className="relative cursor-pointer" onClick={() => toggleCandle(i)}>
-              <div className="w-3 h-12 sm:w-5 h-20 bg-gradient-to-b from-pink-100 to-rose-200 rounded-full shadow-sm border border-white/40" />
-              {lit && (
-                <motion.div 
-                  animate={{ 
-                    scale: [1, 1.2, 1],
-                    opacity: [0.9, 1, 0.9],
-                    y: [0, -3, 0],
-                    rotate: [-3, 3, -3]
-                  }}
-                  transition={{ repeat: Infinity, duration: 0.5 }}
-                  className="absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 w-4 h-7 sm:w-6 h-11 bg-gradient-to-t from-orange-400 to-yellow-200 rounded-full blur-[0.5px]"
-                  style={{ 
-                    clipPath: 'polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%)',
-                    boxShadow: '0 0 15px #ff8c00'
-                  }}
-                />
-              )}
-              {!lit && (
-                <motion.div 
-                  initial={{ opacity: 0, y: 0 }}
-                  animate={{ opacity: [1, 0], y: -20 }}
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 text-gray-400 text-xs"
-                >
-                  💨
-                </motion.div>
-              )}
-            </div>
-          ))}
-        </div>
-
         {/* Cake Layers */}
         <div className="relative flex flex-col items-center scale-75 sm:scale-100 origin-bottom">
+          {/* Candles */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full flex gap-6 sm:gap-10 z-20">
+            {candlesLit.map((lit, i) => (
+              <div key={i} className="relative cursor-pointer" onClick={() => toggleCandle(i)}>
+                <div className="w-3 h-12 sm:w-5 h-20 bg-gradient-to-b from-pink-100 to-rose-200 rounded-full shadow-sm border border-white/40" />
+                {lit && (
+                  <motion.div 
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      opacity: [0.9, 1, 0.9],
+                      y: [0, -3, 0],
+                      rotate: [-3, 3, -3]
+                    }}
+                    transition={{ repeat: Infinity, duration: 0.5 }}
+                    className="absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 w-4 h-7 sm:w-6 h-11 bg-gradient-to-t from-orange-400 to-yellow-200 rounded-full blur-[0.5px]"
+                    style={{ 
+                      clipPath: 'polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%)',
+                      boxShadow: '0 0 15px #ff8c00'
+                    }}
+                  />
+                )}
+                {!lit && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 0 }}
+                    animate={{ opacity: [1, 0], y: -20 }}
+                    className="absolute -top-4 left-1/2 -translate-x-1/2 text-gray-400 text-xs"
+                  >
+                    💨
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
+
           {/* Top Layer */}
           <div className="w-44 sm:w-56 h-20 sm:h-24 cake-gradient rounded-t-[1.8rem] sm:rounded-t-[2.2rem] relative z-10 border-x border-t border-rose-100/50">
             <div className="absolute -bottom-2 left-0 w-full h-4 sm:h-5 flex justify-around px-1">
