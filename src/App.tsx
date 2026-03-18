@@ -137,12 +137,12 @@ const MessageSection = ({ onNext }: { onNext: () => void }) => {
 const PhotoBook = ({ onNext, onBack }: { onNext: () => void, onBack: () => void }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const photos = [
-    { url: '../include/pic1.jpg', caption: '' },
-    { url: '../include/pic2.jpg', caption: ''},
-    { url: '../include/pic3.jpg', caption: ''},
-    { url: '../include/pic4.jpg', caption: ''},
-    { url: '../include/pic5.jpg', caption: ''},
-    { url: '../include/pic6.jpg', caption: ''},
+    { url: '/pic1.jpg', caption: '' },
+    { url: '/pic2.jpg', caption: ''},
+    { url: '/pic3.jpg', caption: ''},
+    { url: '/pic4.jpg', caption: ''},
+    { url: '/pic5.jpg', caption: ''},
+    { url: '/pic6.jpg', caption: ''},
   ];
 
   const next = () => {
@@ -402,7 +402,7 @@ export default function App() {
       {/* Background Music */}
       <audio 
         ref={audioRef}
-        src="../include/Happy-Birthday-Beat.mp3" // Placeholder birthday-like upbeat song
+        src="/Happy-Birthday-Beat.mp3" // Placeholder birthday-like upbeat song
         loop
       />
 
