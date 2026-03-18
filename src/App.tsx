@@ -248,7 +248,7 @@ const CuteCake = ({ onFinish }: { onFinish: () => void }) => {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full flex gap-6 sm:gap-10 z-20">
             {candlesLit.map((lit, i) => (
               <div key={i} className="relative cursor-pointer" onClick={() => toggleCandle(i)}>
-                <div className="w-3 h-12 sm:w-5 h-20 bg-gradient-to-b from-pink-100 to-rose-200 rounded-full shadow-sm border border-white/40" />
+                <div className="w-3 h-12 sm:w-5 sm:h-20 bg-gradient-to-b from-pink-100 to-rose-200 rounded-full shadow-sm border border-white/40" />
                 {lit && (
                   <motion.div 
                     animate={{ 
@@ -258,12 +258,19 @@ const CuteCake = ({ onFinish }: { onFinish: () => void }) => {
                       rotate: [-3, 3, -3]
                     }}
                     transition={{ repeat: Infinity, duration: 0.5 }}
-                    className="absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 w-4 h-7 sm:w-6 h-11 bg-gradient-to-t from-orange-400 to-yellow-200 rounded-full blur-0 sm:blur-[0.5px]"
-                    style={{ 
-                      clipPath: 'polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%)',
-                      boxShadow: '0 0 15px #ff8c00'
-                    }}
-                  />
+                    className="absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 w-4 h-7 sm:w-6 sm:h-11"
+                  >
+                    <svg viewBox="0 0 64 96" className="w-full h-full drop-shadow-[0_0_8px_rgba(255,140,0,0.85)]">
+                      <defs>
+                        <linearGradient id={`flame-grad-${i}`} x1="0" y1="1" x2="0" y2="0">
+                          <stop offset="0%" stopColor="#fb923c" />
+                          <stop offset="100%" stopColor="#fde68a" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M32 2C25 18 6 29 6 53c0 23 12 41 26 41s26-18 26-41C58 31 44 18 32 2z" fill={`url(#flame-grad-${i})`} />
+                      <path d="M32 23c-6 9-14 16-14 30 0 13 6 24 14 24s14-11 14-24c0-11-6-18-14-30z" fill="#fff7cc" opacity="0.92" />
+                    </svg>
+                  </motion.div>
                 )}
                 {!lit && (
                   <motion.div 
