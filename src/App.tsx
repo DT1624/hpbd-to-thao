@@ -414,44 +414,46 @@ export default function App() {
       />
 
       <main className="relative z-10 h-screen flex items-center justify-center p-0">
-        <AnimatePresence mode="wait">
-          {step === 'envelope' && (
-            <motion.div key="envelope" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
-              <Envelope onOpen={handleOpen} />
-            </motion.div>
-          )}
-          
-          {step === 'message' && (
-            <motion.div key="message" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 1.2 }}>
-              <MessageSection 
-                onNext={() => setStep('gallery')} 
-              />
-            </motion.div>
-          )}
-          
-          {step === 'gallery' && (
-            <motion.div key="gallery" initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -100 }}>
-              <PhotoBook 
-                onNext={() => setStep('cake')} 
-                onBack={() => setStep('message')}
-              />
-            </motion.div>
-          )}
-          
-          {step === 'cake' && (
-            <motion.div key="cake" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, y: -50 }}>
-              <CuteCake 
-                onFinish={() => setStep('final')} 
-              />
-            </motion.div>
-          )}
-          
-          {step === 'final' && (
-            <motion.div key="final" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <FinalSection />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="w-full flex items-center justify-center lg:scale-[0.8] lg:origin-center 2xl:scale-100 transition-transform duration-300">
+          <AnimatePresence mode="wait">
+            {step === 'envelope' && (
+              <motion.div key="envelope" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
+                <Envelope onOpen={handleOpen} />
+              </motion.div>
+            )}
+            
+            {step === 'message' && (
+              <motion.div key="message" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 1.2 }}>
+                <MessageSection 
+                  onNext={() => setStep('gallery')} 
+                />
+              </motion.div>
+            )}
+            
+            {step === 'gallery' && (
+              <motion.div key="gallery" initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -100 }}>
+                <PhotoBook 
+                  onNext={() => setStep('cake')} 
+                  onBack={() => setStep('message')}
+                />
+              </motion.div>
+            )}
+            
+            {step === 'cake' && (
+              <motion.div key="cake" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, y: -50 }}>
+                <CuteCake 
+                  onFinish={() => setStep('final')} 
+                />
+              </motion.div>
+            )}
+            
+            {step === 'final' && (
+              <motion.div key="final" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <FinalSection />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </main>
 
       {/* Music Control */}
